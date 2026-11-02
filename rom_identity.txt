@@ -1,0 +1,26 @@
+# ROM identity for Street Fighter II Turbo — the single source of truth.
+#
+# Read by three consumers, so a revision change is made once, here:
+#   - the build   (CMake generates snesrecomp_rom_identity.h from this file)
+#   - tools/regen.sh
+#   - .github/workflows/release.yml
+#
+# Format is `key = value`, one per line; `#` starts a comment. Values may be
+# quoted. Leaving a digest empty means the build cannot verify a ROM it is
+# handed — it will say so rather than accept it.
+
+display_name    = Street Fighter II Turbo
+rom_file        = Street Fighter II Turbo - Hyper Fighting (USA).sfc
+# Every digest of the bare image (copier header stripped), so the Retro
+# catalog can take a submission's identity from this file rather than ask
+# the submitter to hash the ROM again. The build verifies on crc32/sha256.
+expected_crc32  = a45cadd6
+expected_md5    = ac63bd5085b0f8f35e2cff59e9c34456
+expected_sha1   = bd88a3189a34f1e652fe03d8e11a0ae9c0dadfa6
+expected_sha256 = 3e487f8ba48c0b5e31744e3281d6bce375089db6075c8eb3d9a929376b817381
+rom_size        = 2621440
+mapping         = hirom
+region          = USA
+# What a mod package's [[target]] game_id must name to apply to this title
+# (snesrecomp/docs/MOD_PACKAGES.md). Stable across revisions on purpose.
+game_id         = streetfighteriiturbo-usa
